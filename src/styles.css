@@ -293,5 +293,17 @@ main>*,
 .b30 {
   top: 80%;
   left: 80%;
+  cursor: pointer;
 }
-
+.modal {
+  background-color: white;
+  z-index: 5;
+  position: relative;
+  top: 2.5vw;
+}
+.block {
+  display: block;
+}
+.none {
+  display: none;
+}

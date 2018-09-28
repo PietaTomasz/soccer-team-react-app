@@ -1,25 +1,33 @@
 import React, {Component} from "react";
 import Ball from './Ball';
+import Modal from './Modal';
 
 class App extends Component {
   constructor(props){
     super(props);
     this.state = {
-      goals: [],
-      isFetching: false,
-      hasError: false,
-      notFound: false,
-      isModalOpened: false
+      // goals: [],
+      // isFetching: false,
+      // hasError: false,
+      // notFound: false,
+      showModal: true
     }
   }
   componentDidMount(){
     const url = `https://hkn-soccer-2018-api.lim.bz/api/soccer/goals`;
     fetch(url)
       .then(res => res.json)
-
+      
   }
-  openModal() {
-
+  openModal = () => {
+    this.setState({
+      showModal: true
+    })
+  }
+  closeModal = () => {
+    this.setState({
+      showModal: false
+    })
   }
 
   render () {
@@ -32,6 +40,11 @@ class App extends Component {
     <main>
       <div> </div>
       <div className="field">
+
+        <Modal showModal={this.state.showModal} handleClose={this.closeModal} className="modal">
+        
+        </Modal>  
+
         <div className="f1"></div>
         <div className="f2"></div>
 
@@ -46,37 +59,37 @@ class App extends Component {
         <div className="f43"></div>
 
 
-        <div class="ball b01"></div>
-        <div class="ball b02"></div>
-        <div class="ball b03"></div>
-        <div class="ball b04"></div>
-        <div class="ball b05"></div>
-        <div class="ball b06"></div>
-        <div class="ball b07"></div>
-        <div class="ball b08"></div>
-        <div class="ball b09"></div>
-        <div class="ball b10"></div>
-        <div class="ball b11"></div>
-        <div class="ball b12"></div>
-        <div class="ball b13"></div>
-        <div class="ball b14"></div>
-        <div class="ball b15"></div>
-        <div class="ball b16"></div>
-        <div class="ball b17"></div>
-        <div class="ball b18"></div>
-        <div class="ball b19"></div>
-        <div class="ball b20"></div>
-        <div class="ball b21"></div>
-        <div class="ball b22"></div>
-        <div class="ball b23"></div>
-        <div class="ball b24"></div>
-        <div class="ball b25"></div>
-        <div class="ball b26"></div>
-        <div class="ball b27"></div>
-        <div class="ball b28"></div>
-        <div class="ball b29"></div>
-        <Ball onClick="openModal()" />
-
+        <div className="ball b01"></div>
+        <div className="ball b02"></div>
+        <div className="ball b03"></div>
+        <div className="ball b04"></div>
+        <div className="ball b05"></div>
+        <div className="ball b06"></div>
+        <div className="ball b07"></div>
+        <div className="ball b08"></div>
+        <div className="ball b09"></div>
+        <div className="ball b10"></div>
+        <div className="ball b11"></div>
+        <div className="ball b12"></div>
+        <div className="ball b13"></div>
+        <div className="ball b14"></div>
+        <div className="ball b15"></div>
+        <div className="ball b16"></div>
+        <div className="ball b17"></div>
+        <div className="ball b18"></div>
+        <div className="ball b19"></div>
+        <div className="ball b20"></div>
+        <div className="ball b21"></div>
+        <div className="ball b22"></div>
+        <div className="ball b23"></div>
+        <div className="ball b24"></div>
+        <div className="ball b25"></div>
+        <div className="ball b26"></div>
+        <div className="ball b27"></div>
+        <div className="ball b28"></div>
+        <div className="ball b29"></div>
+        <Ball onClick={this.openModal} />
+        
       </div>
       <div> </div>
     </main>

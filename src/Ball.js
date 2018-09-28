@@ -1,7 +1,8 @@
-import React, {Component} from "react";
+import React from "react";
 
-export default function Ball() {
+const Ball = () => {
   return (
     <div class="ball b30"></div>
   )
 }
+export default Ball;
