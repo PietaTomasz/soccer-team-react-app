@@ -1,12 +1,30 @@
-import React from "react";
+import React, {Component} from "react";
 
-function App() {
-  return (
+class App extends Component {
+  constructor(props){
+    super(props);
+    this.state = {
+      goals: [],
+      isFetching: false,
+      hasError: false,
+      notFound: false
+    }
+  }
+  componentDidMount(){
+    const url = `https://hkn-soccer-2018-api.lim.bz/api/soccer/goals`;
+    fetch(url)
+      .then(res => res.json)
+
+  }
+
+  render () {
+    return (
     <div className="App">
     <header>
-      <h1>Soccer</h1>
+      <h1>Soccer App</h1>
     </header>
     <main>
+      <div></div>
       <div className="field">
         <div className="f1"></div>
         <div className="f2"></div>
@@ -21,11 +39,13 @@ function App() {
         <div className="f42"></div>
         <div className="f43"></div>
       </div>
+      <div></div>
     </main>
     <footer>
       Made by Tomasz Pięta
     </footer>
   </div>
   );
+  }
 }
 export default App;
