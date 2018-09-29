@@ -1,5 +1,6 @@
 import React, {Component} from "react";
 import Modal from './Modal';
+import Ball from './Ball';
 import BallList from './BallList';
 
 class App extends Component {
@@ -10,7 +11,13 @@ class App extends Component {
       isFetching: false,
       hasError: false,
       // notFound: false,
-      showModal: false
+      showModal: false,
+      coords: [],
+      dataX: [],
+      dataY: [],
+      data1x: '',
+      data1y: '',
+      white: true
     }
   }
   componentDidMount(){}
@@ -30,14 +37,23 @@ class App extends Component {
           let dataY = JSON.parse(res[i].events[1].y);
           let video = res[i].video.video_path;
           // let coords = [dataX, dataY];
-          let coords = [];
+          let coords = [...coords];
           coords.push(dataX,dataY);
           // console.log(dataX);
           // console.log(dataY);
           console.log(coords,coords[0],coords[1],video);
-          }
-        
-        ;
+          this.setState({
+            coords: [...coords],
+            dataX: [...dataX],
+            dataY: [...dataY],
+          })
+        }
+        let data1x = JSON.parse(res[0].events[1].x);
+        let data1y = JSON.parse(res[0].events[1].y);
+        this.setState({
+          data1x: [...data1x],
+          data1y: [...data1y]
+        })
       })
       .catch(e => {
         this.setState({
@@ -57,9 +73,13 @@ class App extends Component {
     })
   }
 
+  changeColor = () => {
+    this.setState({white: !this.state.white});
+  }
+
   render () {
     // const {goals, isFetching, hasError, notFound} = this.state;
-    const balls = [1, 2, 3, 4, 5, 6];
+    let color = this.state.white ? "black" : "white";
     const url = `https://s3.us-east-2.amazonaws.com/hkn-soccer-2018/180923_WEEK 30 - HEDGES GOAL 87 - DAL@VAN.mp4`;
 
     return (
@@ -71,7 +91,6 @@ class App extends Component {
       </h1>
     </header>
     <main>
-      <div> </div>
       <div className="field">
 
         <div className="f1"></div>
@@ -87,49 +106,18 @@ class App extends Component {
         <div className="f42"></div>
         <div className="f43"></div>
 
-        <div className="balls">
-
-        <div onClick={this.openModal}></div>
-        <div className="ball b02" onClick={this.openModal}></div>
-        <div className="ball b03" onClick={this.openModal}></div>
-        <div className="ball b04" onClick={this.openModal}></div>
-        <div className="ball b05" onClick={this.openModal}></div>
-        <div className="ball b06" onClick={this.openModal}></div>
-        <div className="ball b07" onClick={this.openModal}></div>
-        <div className="ball b08" onClick={this.openModal}></div>
-        <div className="ball b09" onClick={this.openModal}></div>
-        <div className="ball b10" onClick={this.openModal}></div>
-        <div className="ball b11" onClick={this.openModal}></div>
-        <div className="ball b12" onClick={this.openModal}></div>
-        <div className="ball b13" onClick={this.openModal}></div>
-        <div className="ball b14" onClick={this.openModal}></div>
-        <div className="ball b15" onClick={this.openModal}></div>
-        <div className="ball b16" onClick={this.openModal}></div>
-        <div className="ball b17" onClick={this.openModal}></div>
-        <div className="ball b18" onClick={this.openModal}></div>
-        <div className="ball b19" onClick={this.openModal}></div>
-        <div className="ball b20" onClick={this.openModal}></div>
-        <div className="ball b21" onClick={this.openModal}></div>
-        <div className="ball b22" onClick={this.openModal}></div>
-        <div className="ball b23" onClick={this.openModal}></div>
-        <div className="ball b24" onClick={this.openModal}></div>
-        <div className="ball b25" onClick={this.openModal}></div>
-        <div className="ball b26" onClick={this.openModal}></div>
-        <div className="ball b27" onClick={this.openModal}></div>
-        <div className="ball b28" onClick={this.openModal}></div>
-        <div className="ball b29" onClick={this.openModal}></div>
-        <div className="ball b30" onClick={this.openModal}></div>
-        </div>
+        <BallList handleOpen={this.openModal} />
 
         <Modal showModal={this.state.showModal} handleClose={this.closeModal} className="modal" url={url} />
 
       </div>
-      <div> </div>
     </main>
-    <footer>
-      Made by Tomasz Pięta
-      <BallList balls={balls}
-       />
+    <footer onClick={this.changeColor} className={color}>
+      Footer<br />
+      <hr/>
+      {this.state.coords[1]}
+      <hr/>
+      {this.state.data1y}
     </footer>
   </div>
   );

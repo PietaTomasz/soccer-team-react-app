@@ -2,8 +2,8 @@
   margin: 0 auto;
   padding: 0;
   box-sizing: border-box;
+  transition: all 2s;
 }
-
 .App {
   width: 100%;
   min-height: 100vh;
@@ -31,22 +31,20 @@ main {
   background-image: url('https://bit.ly/2xVLa4t');
   background-position: center;
   background-attachment: fixed;
-  border: 5px solid #000;
+  border: .3vw solid #fff;
   border-radius: 15px;
-  box-shadow: 0 0 0 5px #fff;
+  box-shadow: 0 0 0 5px #000;
   position: relative;
-  margin: 3vw auto;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  text-align: center;
+  margin: 3vw auto; 
 }
-
 main>*,
 .field>* {
-  position: absolute;
+  position: absolute;  
 }
-
+.f1,
+.f2 {
+  border-right: .3vw solid #fff;
+}
 .field {
   top: 7%;
   right: 7%;
@@ -55,23 +53,18 @@ main>*,
   border: .3vw solid #fff;
   border-radius: 15px;
 }
-
 .f1 {
   top: 0%;
   right: 50%;
   bottom: 70%;
-  left: 0%;
-  border-right: .3vw solid #fff;
+  left: 0%;  
 }
-
 .f2 {
   top: 70%;
   right: 50%;
   bottom: 0%;
-  left: 0%;
-  border-right: .3vw solid #fff;
+  left: 0%;  
 }
-
 .f30 {
   top: 23%;
   right: 83%;
@@ -187,127 +180,7 @@ main>*,
   grid-template-columns: repeat(6, 1fr);
   grid-template-rows: repeat(5, 1fr);
 }
-/* .b01 {
-  top: 5%;
-  left: 5%;
-}
-.b02 {
-  top: 15%;
-  left: 10%;
-}
-.b03 {
-  top: 15%;
-  left: 5%;
-}
-.b04 {
-  top: 5%;
-  left: 10%;
-}
-.b05 {
-  top: 10%;
-  left: 10%;
-}
-.b06 {
-  top: 10%;
-  left: 10%;
-}
-.b07 {
-  top: 10%;
-  left: 10%;
-}
-.b08 {
-  top: 10%;
-  left: 10%;
-}
-.b09 {
-  top: 10%;
-  left: 10%;
-}
-.b10 {
-  top: 10%;
-  left: 10%;
-}
-.b11 {
-  top: 10%;
-  left: 10%;
-}
-.b12 {
-  top: 10%;
-  left: 10%;
-}
-.b13 {
-  top: 10%;
-  left: 10%;
-}
-.b14 {
-  top: 10%;
-  left: 10%;
-}
-.b15 {
-  top: 10%;
-  left: 10%;
-}
-.b16 {
-  top: 10%;
-  left: 10%;
-}
-.b17 {
-  top: 10%;
-  left: 10%;
-}
-.b18 {
-  top: 10%;
-  left: 10%;
-}
-.b19 {
-  top: 10%;
-  left: 10%;
-}
-.b20 {
-  top: 10%;
-  left: 10%;
-}
-.b21 {
-  top: 10%;
-  left: 10%;
-}
-.b22 {
-  top: 10%;
-  left: 10%;
-}
-.b23 {
-  top: 10%;
-  left: 10%;
-}
-.b24 {
-  top: 10%;
-  left: 10%;
-}
-.b25 {
-  top: 10%;
-  left: 10%;
-}
-.b26 {
-  top: 10%;
-  left: 10%;
-}
-.b27 {
-  top: 10%;
-  left: 10%;
-}
-.b28 {
-  top: 10%;
-  left: 10%;
-}
-.b29 {
-  top: 10%;
-  left: 10%;
-}
-.b30 {
-  top: 80%;
-  left: 80%;
-  cursor: pointer;
-} */
+
 .modal {
   background-color: white;
   z-index: 5;
@@ -321,7 +194,14 @@ main>*,
   display: none;
 }
 .fetch {
-  /* position: relative; */
   position: absolute;
   right: 10px;
+}
+.black {
+  background-color: #000;
+  color: #fff;
+}
+.white {
+  background-color: #fff;
+  color: #000;
 }

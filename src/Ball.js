@@ -1,8 +1,10 @@
 import React from "react";
 
-const Ball = (props, openModal) => {
+const Ball = ({handleOpen}) => {
+  // let top = Math.floor((Math.random() * 100) + 1);
+  // let left = Math.floor((Math.random() * 100) + 1);
   return (
-    <div className="ball"  style={{width: '6vw', position: 'relative', top: '30px', left: '50px', zIndex: '6'}} onClick={props.openModal}></div>
+    <div className="ball" onClick={handleOpen}></div>
   )
 }
 export default Ball;
