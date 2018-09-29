@@ -7,8 +7,8 @@ class App extends Component {
     super(props);
     this.state = {
       // goals: [],
-      // isFetching: false,
-      // hasError: false,
+      isFetching: false,
+      hasError: false,
       // notFound: false,
       showModal: false
     }
@@ -17,10 +17,34 @@ class App extends Component {
 
   fetchData = () => {
     const url = `https://hkn-soccer-2018-api.lim.bz/api/soccer/goals`;
+    this.setState({
+      isFetching: true,
+      // notFound: false
+    })
     fetch(url)
-      .then(res => res.json)
-      .then(res => console.log(res))
-      
+      .then(res => res.json())
+      .then(res => {
+
+        for (let i = 0; i <= res.length; i++) {
+          let dataX = JSON.parse(res[i].events[1].x);
+          let dataY = JSON.parse(res[i].events[1].y);
+          let video = res[i].video.video_path;
+          // let coords = [dataX, dataY];
+          let coords = [];
+          coords.push(dataX,dataY);
+          // console.log(dataX);
+          // console.log(dataY);
+          console.log(coords,coords[0],coords[1],video);
+          }
+        
+        ;
+      })
+      .catch(e => {
+        this.setState({
+          hasError: true,
+          isFetching: false
+        })
+      })
   }
   openModal = () => {
     this.setState({
@@ -35,7 +59,7 @@ class App extends Component {
 
   render () {
     // const {goals, isFetching, hasError, notFound} = this.state;
-    const balls = [1, 2, 3, 4, 5];
+    const balls = [1, 2, 3, 4, 5, 6];
     const url = `https://s3.us-east-2.amazonaws.com/hkn-soccer-2018/180923_WEEK 30 - HEDGES GOAL 87 - DAL@VAN.mp4`;
 
     return (
@@ -49,8 +73,6 @@ class App extends Component {
     <main>
       <div> </div>
       <div className="field">
-
-        
 
         <div className="f1"></div>
         <div className="f2"></div>
@@ -67,7 +89,7 @@ class App extends Component {
 
         <div className="balls">
 
-        <div className="ball b01" onClick={this.openModal}></div>
+        <div onClick={this.openModal}></div>
         <div className="ball b02" onClick={this.openModal}></div>
         <div className="ball b03" onClick={this.openModal}></div>
         <div className="ball b04" onClick={this.openModal}></div>
@@ -106,7 +128,8 @@ class App extends Component {
     </main>
     <footer>
       Made by Tomasz Pięta
-      <BallList balls={balls} />
+      <BallList balls={balls}
+       />
     </footer>
   </div>
   );

@@ -1,8 +1,8 @@
 import React from "react";
 
-const Ball = (props) => {
+const Ball = (props, openModal) => {
   return (
-    <div className="ball b30" onClick={props}></div>
+    <div className="ball"  style={{width: '6vw', position: 'relative', top: '30px', left: '50px', zIndex: '6'}} onClick={props.openModal}></div>
   )
 }
 export default Ball;
