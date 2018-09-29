@@ -1,8 +1,8 @@
 import React from "react";
 
-const Ball = () => {
+const Ball = (props) => {
   return (
-    <div class="ball b30"></div>
+    <div className="ball b30" onClick={props}></div>
   )
 }
 export default Ball;

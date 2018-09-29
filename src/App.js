@@ -1,6 +1,6 @@
 import React, {Component} from "react";
-import Ball from './Ball';
 import Modal from './Modal';
+import BallList from './BallList';
 
 class App extends Component {
   constructor(props){
@@ -10,13 +10,16 @@ class App extends Component {
       // isFetching: false,
       // hasError: false,
       // notFound: false,
-      showModal: true
+      showModal: false
     }
   }
-  componentDidMount(){
+  componentDidMount(){}
+
+  fetchData = () => {
     const url = `https://hkn-soccer-2018-api.lim.bz/api/soccer/goals`;
     fetch(url)
       .then(res => res.json)
+      .then(res => console.log(res))
       
   }
   openModal = () => {
@@ -31,19 +34,23 @@ class App extends Component {
   }
 
   render () {
-    const {goals, isFetching, hasError, notFound} = this.state;
+    // const {goals, isFetching, hasError, notFound} = this.state;
+    const balls = [1, 2, 3, 4, 5];
+    const url = `https://s3.us-east-2.amazonaws.com/hkn-soccer-2018/180923_WEEK 30 - HEDGES GOAL 87 - DAL@VAN.mp4`;
+
     return (
     <div className="App">
     <header>
-      <h1>Soccer App</h1>
+      <h1>Soccer App
+      <button className="fetch" onClick={this.fetchData}>Temporary Button to Fetch Data</button>
+      <button onClick={this.openModal}>OpenModal</button>
+      </h1>
     </header>
     <main>
       <div> </div>
       <div className="field">
 
-        <Modal showModal={this.state.showModal} handleClose={this.closeModal} className="modal">
         
-        </Modal>  
 
         <div className="f1"></div>
         <div className="f2"></div>
@@ -58,43 +65,48 @@ class App extends Component {
         <div className="f42"></div>
         <div className="f43"></div>
 
+        <div className="balls">
 
-        <div className="ball b01"></div>
-        <div className="ball b02"></div>
-        <div className="ball b03"></div>
-        <div className="ball b04"></div>
-        <div className="ball b05"></div>
-        <div className="ball b06"></div>
-        <div className="ball b07"></div>
-        <div className="ball b08"></div>
-        <div className="ball b09"></div>
-        <div className="ball b10"></div>
-        <div className="ball b11"></div>
-        <div className="ball b12"></div>
-        <div className="ball b13"></div>
-        <div className="ball b14"></div>
-        <div className="ball b15"></div>
-        <div className="ball b16"></div>
-        <div className="ball b17"></div>
-        <div className="ball b18"></div>
-        <div className="ball b19"></div>
-        <div className="ball b20"></div>
-        <div className="ball b21"></div>
-        <div className="ball b22"></div>
-        <div className="ball b23"></div>
-        <div className="ball b24"></div>
-        <div className="ball b25"></div>
-        <div className="ball b26"></div>
-        <div className="ball b27"></div>
-        <div className="ball b28"></div>
-        <div className="ball b29"></div>
-        <Ball onClick={this.openModal} />
-        
+        <div className="ball b01" onClick={this.openModal}></div>
+        <div className="ball b02" onClick={this.openModal}></div>
+        <div className="ball b03" onClick={this.openModal}></div>
+        <div className="ball b04" onClick={this.openModal}></div>
+        <div className="ball b05" onClick={this.openModal}></div>
+        <div className="ball b06" onClick={this.openModal}></div>
+        <div className="ball b07" onClick={this.openModal}></div>
+        <div className="ball b08" onClick={this.openModal}></div>
+        <div className="ball b09" onClick={this.openModal}></div>
+        <div className="ball b10" onClick={this.openModal}></div>
+        <div className="ball b11" onClick={this.openModal}></div>
+        <div className="ball b12" onClick={this.openModal}></div>
+        <div className="ball b13" onClick={this.openModal}></div>
+        <div className="ball b14" onClick={this.openModal}></div>
+        <div className="ball b15" onClick={this.openModal}></div>
+        <div className="ball b16" onClick={this.openModal}></div>
+        <div className="ball b17" onClick={this.openModal}></div>
+        <div className="ball b18" onClick={this.openModal}></div>
+        <div className="ball b19" onClick={this.openModal}></div>
+        <div className="ball b20" onClick={this.openModal}></div>
+        <div className="ball b21" onClick={this.openModal}></div>
+        <div className="ball b22" onClick={this.openModal}></div>
+        <div className="ball b23" onClick={this.openModal}></div>
+        <div className="ball b24" onClick={this.openModal}></div>
+        <div className="ball b25" onClick={this.openModal}></div>
+        <div className="ball b26" onClick={this.openModal}></div>
+        <div className="ball b27" onClick={this.openModal}></div>
+        <div className="ball b28" onClick={this.openModal}></div>
+        <div className="ball b29" onClick={this.openModal}></div>
+        <div className="ball b30" onClick={this.openModal}></div>
+        </div>
+
+        <Modal showModal={this.state.showModal} handleClose={this.closeModal} className="modal" url={url} />
+
       </div>
       <div> </div>
     </main>
     <footer>
       Made by Tomasz Pięta
+      <BallList balls={balls} />
     </footer>
   </div>
   );
