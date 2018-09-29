@@ -1,6 +1,5 @@
 import React, {Component} from "react";
 import Modal from './Modal';
-import Ball from './Ball';
 import BallList from './BallList';
 
 class App extends Component {
@@ -79,18 +78,22 @@ class App extends Component {
 
   render () {
     // const {goals, isFetching, hasError, notFound} = this.state;
+    const balls = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30];
     let color = this.state.white ? "black" : "white";
     const url = `https://s3.us-east-2.amazonaws.com/hkn-soccer-2018/180923_WEEK 30 - HEDGES GOAL 87 - DAL@VAN.mp4`;
 
     return (
     <div className="App">
-    <header>
+    <header onClick={this.changeColor} className={color}>
       <h1>Soccer App
       <button className="fetch" onClick={this.fetchData}>Temporary Button to Fetch Data</button>
-      <button onClick={this.openModal}>OpenModal</button>
       </h1>
     </header>
+    <h3>
+    After clicking on the ball, the video of victorious goal is presented.
+    </h3>
     <main>
+    
       <div className="field">
 
         <div className="f1"></div>
@@ -106,7 +109,7 @@ class App extends Component {
         <div className="f42"></div>
         <div className="f43"></div>
 
-        <BallList handleOpen={this.openModal} />
+        <BallList handleOpen={this.openModal} balls={balls} />
 
         <Modal showModal={this.state.showModal} handleClose={this.closeModal} className="modal" url={url} />
 
