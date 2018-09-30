@@ -1,4 +1,5 @@
 import React from 'react';
+import './Modal.css';
 
 const Modal = ({ handleClose, showModal, url }) => {
   const showHide = showModal ? 'modal block' : 'modal none';

@@ -1,25 +1,27 @@
 import React, {Component} from "react";
-import Modal from './Modal';
-import BallList from './BallList';
+import Modal from '../components/Modal/Modal';
+import BallList from '../components/BallList/BallList';
+import Loader from '../components/Loader/Loader';
+import './App.css';
 
 class App extends Component {
   constructor(props){
     super(props);
     this.state = {
-      // goals: [],
       isFetching: false,
       hasError: false,
-      // notFound: false,
       showModal: false,
-      coords: [],
       dataX: [],
       dataY: [],
-      data1x: '',
-      data1y: '',
+      video: [],
       white: true
     }
   }
-  componentDidMount(){}
+  componentDidMount(){
+    this.setState({
+      isFetching: true
+    })
+  }
 
   fetchData = () => {
     const url = `https://hkn-soccer-2018-api.lim.bz/api/soccer/goals`;
@@ -29,31 +31,6 @@ class App extends Component {
     })
     fetch(url)
       .then(res => res.json())
-      .then(res => {
-
-        for (let i = 0; i <= res.length; i++) {
-          let dataX = JSON.parse(res[i].events[1].x);
-          let dataY = JSON.parse(res[i].events[1].y);
-          let video = res[i].video.video_path;
-          // let coords = [dataX, dataY];
-          let coords = [...coords];
-          coords.push(dataX,dataY);
-          // console.log(dataX);
-          // console.log(dataY);
-          console.log(coords,coords[0],coords[1],video);
-          this.setState({
-            coords: [...coords],
-            dataX: [...dataX],
-            dataY: [...dataY],
-          })
-        }
-        let data1x = JSON.parse(res[0].events[1].x);
-        let data1y = JSON.parse(res[0].events[1].y);
-        this.setState({
-          data1x: [...data1x],
-          data1y: [...data1y]
-        })
-      })
       .catch(e => {
         this.setState({
           hasError: true,
@@ -109,18 +86,14 @@ class App extends Component {
         <div className="f42"></div>
         <div className="f43"></div>
 
-        <BallList handleOpen={this.openModal} balls={balls} />
+        <BallList handleOpen={this.openModal} balls={balls} top={this.state.dataX} left={this.state.dataY} />
 
-        <Modal showModal={this.state.showModal} handleClose={this.closeModal} className="modal" url={url} />
+        <Modal showModal={this.state.showModal} handleClose={this.closeModal} className="modal" url={this.state.video} />
 
       </div>
     </main>
     <footer onClick={this.changeColor} className={color}>
-      Footer<br />
-      <hr/>
-      {this.state.coords[1]}
-      <hr/>
-      {this.state.data1y}
+      Footer
     </footer>
   </div>
   );
