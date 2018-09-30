@@ -38,8 +38,7 @@ class App extends Component {
         }));
         this.setState({
           goals: goals,
-          isFetching: false,
-          videoUrl: goals.videoUrl
+          isFetching: false
         });
       })
       .catch(e => {
@@ -68,7 +67,7 @@ class App extends Component {
   };
 
   render () {
-    const {goals, isFetching, hasError, showModal, videoUrl} = this.state;    
+    const {goals, isFetching, hasError, showModal, videoUrl} = this.state;
     return (
       <div className="App">
         <header>
@@ -80,10 +79,10 @@ class App extends Component {
         {isFetching ? <Loader /> : <div className="dummy" /> }
         <main>
           <Field />
-            {hasError && 
+            {hasError &&
               <div className="alert">There has been an error fetching data. Refresh the page</div>}
             <BallList handleOpen={this.openModal} balls={goals} />
-            {videoUrl && 
+            {videoUrl &&
               <Modal showModal={showModal} handleClose={this.closeModal} className="modal" videoUrl={videoUrl} />}
         </main>
         <Footer />
