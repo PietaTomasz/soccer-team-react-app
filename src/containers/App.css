@@ -1,203 +1,37 @@
+
+@import url('https://fonts.googleapis.com/css?family=Roboto+Mono');
+
 * {
   margin: 0 auto;
   padding: 0;
   box-sizing: border-box;
-  transition: all 2s;
 }
 .App {
   width: 100%;
   min-height: 100vh;
   text-align: center;
+  font-family: 'Roboto Mono', monospace, sans-serif;
+  font-size: 1.5vw;
   margin: 0 auto;
   background-color: #F0C808;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 }
-footer, header {
+
+header, footer {
   background-color: black;
   color: white;
   text-transform: uppercase;
   display: block;
   width: 100%;
 }
-main {
-  max-width: 1200px;
-  width: 90%;
-  height: 90vw;
-  max-height: 820px;
-  height: calc(90vw/3*2);
-  background-image: url('../images/grass.png');
-  background-position: center;
-  background-attachment: fixed;
-  border: .3vw solid #fff;
-  border-radius: 15px;
-  box-shadow: 0 0 0 5px #000;
-  position: relative;
-  margin: 3vw auto; 
-}
-main>*,
-.field>* {
-  position: absolute;  
-}
-.f1,
-.f2 {
-  border-right: .3vw solid #fff;
-}
-.field {
-  top: 7%;
-  right: 7%;
-  bottom: 7%;
-  left: 7%;
-  border: .3vw solid #fff;
-  border-radius: 15px;
-}
-.f1 {
-  top: 0%;
-  right: 50%;
-  bottom: 70%;
-  left: 0%;  
-}
-.f2 {
-  top: 70%;
-  right: 50%;
-  bottom: 0%;
-  left: 0%;  
-}
-.f30 {
-  top: 23%;
-  right: 83%;
-  bottom: 23%;
-  left: 0%;
-  border: .3vw solid #fff;
-  border-left: transparent;
-  border-top-right-radius: 15px;
-  border-bottom-right-radius: 15px;
-  background-image: url('../images/grass.png');
-  background-position: center;
-  background-attachment: fixed;
-  z-index: 3;
+
+.title {
+  max-width: 90vw;
+  margin: 0 auto;
 }
 
-.f31 {
-  top: 45%;
-  right: 100%;
-  bottom: 45%;
-  left: -3%;
-  border: .3vw solid #fff;
-  border-right: transparent;
-  border-top-left-radius: 4px;
-  border-bottom-left-radius: 4px;
-}
 
-.f32 {
-  top: 40%;
-  right: 94%;
-  bottom: 40%;
-  left: 0%;
-  border: .3vw solid #fff;
-  border-left: transparent;
-  border-top-right-radius: 14px;
-  border-bottom-right-radius: 14px;
-  z-index: 4;
-}
 
-.f33 {
-  top: 30%;
-  right: 80%;
-  bottom: 30%;
-  left: -10%;
-  border-right: .3vw solid #fff;
-  border-left: transparent;
-  border-radius: 50%;
-}
 
-.f40 {
-  top: 23%;
-  right: 0%;
-  bottom: 23%;
-  left: 83%;
-  border: .3vw solid #fff;
-  border-right: transparent;
-  border-top-left-radius: 15px;
-  border-bottom-left-radius: 15px;
-  background-image: url('../images/grass.png');
-  background-position: center;
-  background-attachment: fixed;
-  z-index: 3;
-}
-
-.f41 {
-  top: 45%;
-  right: -3%;
-  bottom: 45%;
-  left: 100%;
-  border: .3vw solid #fff;
-  border-left: transparent;
-  border-top-right-radius: 4px;
-  border-bottom-right-radius: 4px;
-}
-
-.f42 {
-  top: 40%;
-  right: 0%;
-  bottom: 40%;
-  left: 94%;
-  border: .3vw solid #fff;
-  border-right: transparent;
-  border-top-left-radius: 14px;
-  border-bottom-left-radius: 14px;
-  z-index: 4;
-}
-
-.f43 {
-  top: 30%;
-  right: -10%;
-  bottom: 30%;
-  left: 80%;
-  border-left: .3vw solid #fff;
-  border-right: transparent;
-  border-radius: 50%;
-}
-
-.ball {
-  background-image: url('../images/ball.png');
-  background-size: cover;
-  width: 3vw;
-  height: 3vw;
-  position: absolute;
-  z-index: 4;
-}
-.balls {
-  width: 85%;
-  height: 85%;
-  margin: 3vw 0 0 5vw;
-}
-
-.modal {
-  background-color: white;
-  z-index: 5;
-  position: relative;
-  top: 2.5vw;
-  border: 10px solid #F0C808;
-  border-radius: 30px;
-  box-shadow: 0 0 0 10px #000;
-}
-.block {
-  display: block;
-}
-.none {
-  display: none;
-}
-.fetch {
-  position: absolute;
-  right: 10px;
-}
-.black {
-  background-color: #000;
-  color: #fff;
-}
-.white {
-  background-color: #fff;
-  color: #000;
-}

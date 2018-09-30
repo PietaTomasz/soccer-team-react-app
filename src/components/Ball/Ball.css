@@ -1,0 +1,8 @@
+.ball {
+  background-image: url('./Ball.png');
+  background-size: cover;
+  width: 3vw;
+  height: 3vw;
+  position: absolute;
+  z-index: 4;
+}
