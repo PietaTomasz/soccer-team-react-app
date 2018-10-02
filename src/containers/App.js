@@ -1,9 +1,5 @@
 import React, {Component} from "react";
-import Modal from '../components/Modal/Modal';
-import BallList from '../components/BallList/BallList';
-import Loader from '../components/Loader/Loader';
-import Field from '../components/Field/Field';
-import Footer from '../components/Footer/Footer';
+import { Modal, BallList, Loader, Field, Footer } from '../components';
 import './App.css';
 
 class App extends Component {
