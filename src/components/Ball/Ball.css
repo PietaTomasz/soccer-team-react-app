@@ -5,4 +5,5 @@
   height: 3vw;
   position: absolute;
   z-index: 4;
+  cursor: pointer;
 }
