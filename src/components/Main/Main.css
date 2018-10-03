@@ -1,0 +1,7 @@
+.main {
+  width: 100%;
+  margin: 0 auto;
+  background-image: url('../../containers/Field/Grass.png');
+  background-position: center;
+  background-attachment: fixed;
+}

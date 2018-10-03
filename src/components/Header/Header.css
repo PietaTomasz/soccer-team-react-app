@@ -1,0 +1,19 @@
+@import url("https://use.fontawesome.com/releases/v5.3.1/css/all.css");
+
+.header {
+  display: flex;
+  justify-content: space-around;
+  flex-direction: row;
+  background-color: black;
+  color: white;
+  text-transform: uppercase;
+  width: 100%;
+}
+
+a:link,
+a:hover,
+a:active,
+a:visited {
+  color: white;
+  text-decoration: none;
+}

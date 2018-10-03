@@ -1,0 +1,7 @@
+.soccer {
+  width: 100%;
+  margin: 0 auto;
+  background-image: url('../../components/Field/Grass.png');
+  background-position: center;
+  background-attachment: fixed;
+}
