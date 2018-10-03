@@ -4,3 +4,4 @@ export { default as Field } from './Field/Field';
 export { default as Footer } from './Footer/Footer';
 export { default as Loader } from './Loader/Loader';
 export { default as Modal } from './Modal/Modal';
+export { default as Error } from './Error/Error';

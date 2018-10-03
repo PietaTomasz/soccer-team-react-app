@@ -1,5 +1,5 @@
 import React, {Component} from "react";
-import { Modal, BallList, Loader, Field, Footer } from '../components';
+import { Modal, BallList, Loader, Field, Footer, Error } from '../components';
 import './App.css';
 
 class App extends Component {
@@ -73,6 +73,7 @@ class App extends Component {
           After clicking on the ball, the video of victorious goal is presented.
         </h3>
         {isFetching ? <Loader /> : <div className="dummy" /> }
+        {hasError ? <Error /> : null }
         <main>
           <Field />
             {hasError &&
